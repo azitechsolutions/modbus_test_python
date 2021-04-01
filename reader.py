@@ -16,7 +16,7 @@ modbusClient.connect()
 
 StartAddressA = 3914
 
-dataA = modbusClient.read_holdingregisters(3915,2)
+dataA = modbusClient.read_holdingregisters(3915,2,dataA)
 
 # energy = 0
 
