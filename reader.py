@@ -218,10 +218,6 @@ print("Demand Power Present: {}".format(demandcurrentpresent))
 print("Demand Power Predicted: {}".format(demandpowerpredicted))
 print("Demand Power Peak: {}".format(demandpowerpeak))
 
-print("CT1: {}".format(CT1))
-print("CT2: {}".format(CT2))
-print("PT1: {}".format(PT1))
-print("PT2: {}".format(PT2))
 
 
 
