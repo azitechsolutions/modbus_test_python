@@ -173,9 +173,9 @@ voltagecn = INT32_V2_Inverse(13312+4,StartAddress_A,data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = 0
-currentb = 0
-currentc = 0
+currenta = INT32_V2_Inverse(13312+6,StartAddress_A,data_A)
+currentb = INT32_V2_Inverse(13312+8,StartAddress_A,data_A)
+currentc = INT32_V2_Inverse(13312+10,StartAddress_A,data_A)
 
 powerfactora = 0
 powerfactorb = 0
