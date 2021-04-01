@@ -138,7 +138,7 @@ dataB = modbusClient.read_holdingregisters(3180,20)
 print(dataA)
 print(dataB)
 
-energy = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
+energy = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
 
 activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)
 activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)
