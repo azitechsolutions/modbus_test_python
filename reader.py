@@ -133,10 +133,10 @@ StartAddressA = 3900
 
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
-dataB = modbusClient.read_holdingregisters(3180,10)
+dataB = modbusClient.read_holdingregisters(3180,20)
 
 print(dataA)
-#print(dataB)
+print(dataB)
 
 energy = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
 
