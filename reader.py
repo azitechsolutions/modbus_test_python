@@ -152,17 +152,17 @@ energy = 0
 print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
-activepowera = 0
-activepowerb = 0
-activepowerc = 0
+activepowera = INT32_V2_Inverse(13312+12,StartAddress_A,data_A)
+activepowerb = INT32_V2_Inverse(13312+14,StartAddress_A,data_A)
+activepowerc = INT32_V2_Inverse(13312+16,StartAddress_A,data_A)
 
-apparentpowera = 0
-apparentpowerb = 0
-apparentpowerc = 0
+apparentpowera = INT32_V2_Inverse(13312+24,StartAddress_A,data_A)
+apparentpowerb = INT32_V2_Inverse(13312+26,StartAddress_A,data_A)
+apparentpowerc = INT32_V2_Inverse(13312+28,StartAddress_A,data_A)
 
-reactivepowera = 0
-reactivepowerb = 0
-reactivepowerc = 0
+reactivepowera = INT32_V2_Inverse(13312+18,StartAddress_A,data_A)
+reactivepowerb = INT32_V2_Inverse(13312+20,StartAddress_A,data_A)
+reactivepowerc = INT32_V2_Inverse(13312+22,StartAddress_A,data_A)
 
 voltageab = INT32_V2_Inverse(13312+60,StartAddress_A,data_A)
 voltagebc = INT32_V2_Inverse(13312+62,StartAddress_A,data_A)
@@ -173,13 +173,13 @@ voltagecn = INT32_V2_Inverse(13312+4,StartAddress_A,data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = INT32_V2_Inverse(13312+6,StartAddress_A,data_A)
-currentb = INT32_V2_Inverse(13312+8,StartAddress_A,data_A)
-currentc = INT32_V2_Inverse(13312+10,StartAddress_A,data_A)
+currenta = INT32_V2_Inverse(13312+6,StartAddress_A,data_A)/100
+currentb = INT32_V2_Inverse(13312+8,StartAddress_A,data_A)/100
+currentc = INT32_V2_Inverse(13312+10,StartAddress_A,data_A)/100
 
-powerfactora = 0
-powerfactorb = 0
-powerfactorc = 0
+powerfactora = INT32_V2_Inverse(13312+30,StartAddress_A,data_A)
+powerfactorb = INT32_V2_Inverse(13312+32,StartAddress_A,data_A)
+powerfactorc = INT32_V2_Inverse(13312+34,StartAddress_A,data_A)
 
 frequency = 0
 
