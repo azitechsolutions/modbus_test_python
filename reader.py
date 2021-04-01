@@ -97,6 +97,7 @@ def INT32(register, startRegister, dataArray):
 def INT32_V2(register, startRegister, dataArray):
     high = dataArray[register-startRegister]
     low = dataArray[(register-startRegister)+1]  
+    print("high: {}   low: {}".format(high,low))
     low_hex = "%02x" % int(low)
     high_hex = "%02x" % int(high)
     for i in range(len(low_hex),4):
