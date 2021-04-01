@@ -133,19 +133,19 @@ StartAddressA = 3900
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
 print(dataA)
-energy = 0
+energy = UINT32toFloat_V2(3961,StartAddressA,dataA)
 
-activepowera = 0
-activepowerb = 0
-activepowerc = 0
+activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)
+activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)
+activepowerc = UINT32toFloat_V2(3947,StartAddressA,dataA)
 
-apparentpowera = 0
-apparentpowerb = 0
-apparentpowerc = 0
+apparentpowera = UINT32toFloat_V2(3917,StartAddressA,dataA)
+apparentpowerb = UINT32toFloat_V2(3931,StartAddressA,dataA)
+apparentpowerc = UINT32toFloat_V2(3945,StartAddressA,dataA)
 
-reactivepowera = 0
-reactivepowerb = 0
-reactivepowerc = 0
+reactivepowera = UINT32toFloat_V2(3921,StartAddressA,dataA)
+reactivepowerb = UINT32toFloat_V2(3935,StartAddressA,dataA)
+reactivepowerc = UINT32toFloat_V2(3949,StartAddressA,dataA)
 
 voltageab = UINT32toFloat_V2(3925,StartAddressA,dataA)
 voltagebc = UINT32toFloat_V2(3939,StartAddressA,dataA)
@@ -160,16 +160,16 @@ currenta = UINT32toFloat_V2(3929,StartAddressA,dataA)
 currentb = UINT32toFloat_V2(3943,StartAddressA,dataA)
 currentc = UINT32toFloat_V2(3957,StartAddressA,dataA)
 
-powerfactora = 0
-powerfactorb = 0
-powerfactorc = 0
+powerfactora = UINT32toFloat_V2(3923,StartAddressA,dataA)
+powerfactorb = UINT32toFloat_V2(3937,StartAddressA,dataA)
+powerfactorc = UINT32toFloat_V2(3951,StartAddressA,dataA)
 
 frequency = UINT32toFloat_V2(3915,StartAddressA,dataA)
 
 demandpowerlast = 0
-demandpowerpresent = 0
+demandpowerpresent = UINT32toFloat_V2(3975,StartAddressA,dataA)
 demandpowerpredicted = 0 
-demandpowerpeak = 0
+demandpowerpeak = UINT32toFloat_V2(3979,StartAddressA,dataA)
 
 
 demandcurrentlast = 0
