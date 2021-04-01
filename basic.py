@@ -15,7 +15,7 @@ modbusClient.connect()
 
 
 StartAddressA = 256
-dataA = modbusClient.read_holdingregisters(StartAddressA,10)
+dataA = modbusClient.read_holdingregisters(StartAddressA,20)
 
 print(dataA)
 #print(dataB)
