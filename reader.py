@@ -176,9 +176,9 @@ currenta = INT32_V2_Inverse(13312+6,StartAddress_A,data_A)/100
 currentb = INT32_V2_Inverse(13312+8,StartAddress_A,data_A)/100
 currentc = INT32_V2_Inverse(13312+10,StartAddress_A,data_A)/100
 
-powerfactora = INT32_V2_Inverse(13312+30,StartAddress_A,data_A)
-powerfactorb = INT32_V2_Inverse(13312+32,StartAddress_A,data_A)
-powerfactorc = INT32_V2_Inverse(13312+34,StartAddress_A,data_A)
+powerfactora = INT32_V2_Inverse(13312+30,StartAddress_A,data_A)/1000
+powerfactorb = INT32_V2_Inverse(13312+32,StartAddress_A,data_A)/1000
+powerfactorc = INT32_V2_Inverse(13312+34,StartAddress_A,data_A)/1000
 
 frequency = 0
 
