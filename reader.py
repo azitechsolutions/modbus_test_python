@@ -129,7 +129,7 @@ def DWORD32(register, startRegister, dataArray):
     value = float(int(joinHex,16))
     return value
 
-StartAddressA = 3901
+StartAddressA = 3900
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,99)
 
