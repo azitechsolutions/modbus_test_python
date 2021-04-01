@@ -141,17 +141,17 @@ print(dataB)
 energy1 = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
 energy2 = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
 
-activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)
-activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)
-activepowerc = UINT32toFloat_V2(3947,StartAddressA,dataA)
+activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)/1000
+activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)/1000
+activepowerc = UINT32toFloat_V2(3947,StartAddressA,dataA)/1000
 
-apparentpowera = UINT32toFloat_V2(3917,StartAddressA,dataA)
-apparentpowerb = UINT32toFloat_V2(3931,StartAddressA,dataA)
-apparentpowerc = UINT32toFloat_V2(3945,StartAddressA,dataA)
+apparentpowera = UINT32toFloat_V2(3917,StartAddressA,dataA)/1000
+apparentpowerb = UINT32toFloat_V2(3931,StartAddressA,dataA)/1000
+apparentpowerc = UINT32toFloat_V2(3945,StartAddressA,dataA)/1000
 
-reactivepowera = UINT32toFloat_V2(3921,StartAddressA,dataA)
-reactivepowerb = UINT32toFloat_V2(3935,StartAddressA,dataA)
-reactivepowerc = UINT32toFloat_V2(3949,StartAddressA,dataA)
+reactivepowera = UINT32toFloat_V2(3921,StartAddressA,dataA)/1000
+reactivepowerb = UINT32toFloat_V2(3935,StartAddressA,dataA)/1000
+reactivepowerc = UINT32toFloat_V2(3949,StartAddressA,dataA)/1000
 
 voltageab = UINT32toFloat_V2(3925,StartAddressA,dataA)
 voltagebc = UINT32toFloat_V2(3939,StartAddressA,dataA)
