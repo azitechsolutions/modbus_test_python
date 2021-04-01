@@ -133,7 +133,7 @@ StartAddressA = 3900
 
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
-dataB = modbusClient.read_holdingregisters(3180,22)
+dataB = modbusClient.read_holdingregisters(3180,10)
 
 print(dataA)
 #print(dataB)
