@@ -166,7 +166,7 @@ reactivepowerc = 0
 
 voltageab = INT32_V2_Inverse(13312+60,StartAddress_A,data_A)
 voltagebc = INT32_V2_Inverse(13312+62,StartAddress_A,data_A)
-voltageca = INT32_V2_Inverse(13312+64,StartAddress_A,data_A)
+voltageca = INT32_V2_Inverse(13312+62,StartAddress_A,data_A)
 voltagean = INT32_V2_Inverse(13312+0,StartAddress_A,data_A)
 voltagebn = INT32_V2_Inverse(13312+1,StartAddress_A,data_A)
 voltagecn = INT32_V2_Inverse(13312+2,StartAddress_A,data_A)
