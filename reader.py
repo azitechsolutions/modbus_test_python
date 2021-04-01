@@ -162,7 +162,7 @@ data_B = modbusClient.read_holdingregisters(StartAddress_B, 8)
 data_C = modbusClient.read_holdingregisters(StartAddress_C, 2)
 
 
-energy = 0
+energy = UINT32_V2_Inverse(StartAddress_C+0,StartAddress_C,data_C)
 print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
@@ -170,9 +170,9 @@ activepowera = INT32_V2_Inverse(StartAddress_A+12,StartAddress_A,data_A)
 activepowerb = INT32_V2_Inverse(StartAddress_A+14,StartAddress_A,data_A)
 activepowerc = INT32_V2_Inverse(StartAddress_A+16,StartAddress_A,data_A)
 
-apparentpowera = INT32_V2_Inverse(StartAddress_A+24,StartAddress_A,data_A)
-apparentpowerb = INT32_V2_Inverse(StartAddress_A+26,StartAddress_A,data_A)
-apparentpowerc = INT32_V2_Inverse(StartAddress_A+28,StartAddress_A,data_A)
+apparentpowera = UINT32_V2_Inverse(StartAddress_A+24,StartAddress_A,data_A)
+apparentpowerb = UINT32_V2_Inverse(StartAddress_A+26,StartAddress_A,data_A)
+apparentpowerc = UINT32_V2_Inverse(StartAddress_A+28,StartAddress_A,data_A)
 
 reactivepowera = INT32_V2_Inverse(StartAddress_A+18,StartAddress_A,data_A)
 reactivepowerb = INT32_V2_Inverse(StartAddress_A+20,StartAddress_A,data_A)
@@ -195,7 +195,7 @@ powerfactora = INT32_V2_Inverse(StartAddress_A+30,StartAddress_A,data_A)/1000
 powerfactorb = INT32_V2_Inverse(StartAddress_A+32,StartAddress_A,data_A)/1000
 powerfactorc = INT32_V2_Inverse(StartAddress_A+34,StartAddress_A,data_A)/1000
 
-frequency = INT32_V2_Inverse(StartAddress_B+4,StartAddress_B,data_B)/100
+frequency = UINT32_V2_Inverse(StartAddress_B+4,StartAddress_B,data_B)/100
 
 demandpowerlast = 0
 demandpowerpresent = 0
