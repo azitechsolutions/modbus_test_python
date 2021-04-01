@@ -131,8 +131,8 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddressA = 3900
 
-dataA = modbusClient.read_holdingregisters(StartAddressA,99)
-
+dataA = modbusClient.read_holdingregisters(StartAddressA,2)
+prit(dataA)
 energy = 0
 
 activepowera = 0
@@ -164,7 +164,7 @@ powerfactora = 0
 powerfactorb = 0
 powerfactorc = 0
 
-frequency = UINT32toFloat_V2(3915-1,StartAddressA,dataA)
+frequency = 0 #UINT32toFloat_V2(3915-1,StartAddressA,dataA)
 
 demandpowerlast = 0
 demandpowerpresent = 0
