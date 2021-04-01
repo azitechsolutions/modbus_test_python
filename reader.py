@@ -94,10 +94,23 @@ def INT32(register, startRegister, dataArray):
     joinHex = "{}{}".format(high_hex,low_hex)
     result = int32bits(joinHex)
     return round(float(result), 2)
-def INT32_V2(register, startRegister, dataArray):
+def INT32_V2_Inverse(register, startRegister, dataArray):
     low = dataArray[register-startRegister]
     high = dataArray[(register-startRegister)+1]  
     print("high: {}   low: {}".format(high,low))
+    low_hex = "%02x" % int(low)
+    high_hex = "%02x" % int(high)
+    for i in range(len(low_hex),4):
+        low_hex = "0{}".format(low_hex)
+    for i in range(len(high_hex),4):
+        high_hex = "0{}".format(high_hex)
+
+    joinHex = "{}{}".format(high_hex,low_hex)
+    result = int32bits(joinHex)
+    return round(float(result), 2)
+def INT32_V2(register, startRegister, dataArray):
+    high = dataArray[register-startRegister]
+    low = dataArray[(register-startRegister)+1]  
     low_hex = "%02x" % int(low)
     high_hex = "%02x" % int(high)
     for i in range(len(low_hex),4):
@@ -151,12 +164,12 @@ reactivepowera = 0
 reactivepowerb = 0
 reactivepowerc = 0
 
-voltageab = 0
-voltagebc = 0
-voltageca = 0
-voltagean = INT32_V2(13312,StartAddress_A,data_A)
-voltagebn = 0
-voltagecn = 0
+voltageab = INT32_V2_Inverse(13312+60,StartAddress_A,data_A)
+voltagebc = INT32_V2_Inverse(13312+62,StartAddress_A,data_A)
+voltageca = INT32_V2_Inverse(13312+64,StartAddress_A,data_A)
+voltagean = INT32_V2_Inverse(13312+0,StartAddress_A,data_A)
+voltagebn = INT32_V2_Inverse(13312+1,StartAddress_A,data_A)
+voltagecn = INT32_V2_Inverse(13312+2,StartAddress_A,data_A)
 voltagell = 0
 voltagelnavg = 0
 
