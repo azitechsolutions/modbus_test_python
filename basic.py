@@ -5,17 +5,18 @@ import codecs
 
 
 
-modbusClient = ModbusClient("/dev/ttyS0")
+# modbusClient = ModbusClient("/dev/ttyS0")
+modbusClient = ModbusClient("/dev/tty.usbserial-14310")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
-modbusClient.unitidentifier = 3
+modbusClient.unitidentifier = 1
 modbusClient.connect()
 
 
 
-StartAddressA = 13312
-dataA = modbusClient.read_holdingregisters(StartAddressA,64)
+StartAddressA = 16384
+dataA = modbusClient.read_holdingregisters(StartAddressA,125)
 
 print(dataA)
 #print(dataB)
