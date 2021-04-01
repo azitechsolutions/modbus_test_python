@@ -164,7 +164,7 @@ powerfactora = 0
 powerfactorb = 0
 powerfactorc = 0
 
-frequency = 0 #UINT32toFloat_V2(3915-1,StartAddressA,dataA)
+frequency = UINT32toFloat_V2(3915-1,StartAddressA,dataA)
 
 demandpowerlast = 0
 demandpowerpresent = 0
