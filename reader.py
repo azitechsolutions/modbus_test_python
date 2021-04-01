@@ -147,18 +147,18 @@ reactivepowera = 0
 reactivepowerb = 0
 reactivepowerc = 0
 
-voltageab = 0
-voltagebc = 0
-voltageca = 0
-voltagean = 0
-voltagebn = 0
-voltagecn = 0
-voltagell = 0
-voltagelnavg = 0
+voltageab = UINT32toFloat_V2(3925,StartAddressA,dataA)
+voltagebc = UINT32toFloat_V2(3939,StartAddressA,dataA)
+voltageca = UINT32toFloat_V2(3953,StartAddressA,dataA)
+voltagean = UINT32toFloat_V2(3927,StartAddressA,dataA)
+voltagebn = UINT32toFloat_V2(3941,StartAddressA,dataA)
+voltagecn = UINT32toFloat_V2(3955,StartAddressA,dataA)
+voltagell = UINT32toFloat_V2(3909,StartAddressA,dataA)
+voltagelnavg = UINT32toFloat_V2(3911,StartAddressA,dataA)
 
-currenta = 0
-currentb = 0
-currentc = 0
+currenta = UINT32toFloat_V2(3929,StartAddressA,dataA)
+currentb = UINT32toFloat_V2(3943,StartAddressA,dataA)
+currentc = UINT32toFloat_V2(3957,StartAddressA,dataA)
 
 powerfactora = 0
 powerfactorb = 0
