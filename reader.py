@@ -130,7 +130,7 @@ def DWORD32(register, startRegister, dataArray):
     return value
 
 StartAddressA = 3900
-StartAddressB = 3182
+StartAddressB = 3100
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
 dataB = modbusClient.read_holdingregisters(StartAddressB,2)
