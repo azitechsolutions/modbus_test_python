@@ -131,15 +131,19 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddressA = 3900
 StartAddressB = 3180
+StartAddressC = 3120
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
 dataB = modbusClient.read_holdingregisters(StartAddressB,20)
+dataC = modbusClient.read_holdingregisters(StartAddressC,20)
 
 print(dataA)
 print(dataB)
+print(dataC)
 
 energy1 = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
 energy2 = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
+energy3 = UINT32toFloat_V2(3123,StartAddressC,dataC)/1000
 
 activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)/1000
 activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)/1000
@@ -188,6 +192,8 @@ demandcurrentpeak = 0
 
 print("Energy 1: {}".format(energy1))
 print("Energy 2: {}".format(energy2))
+print("Energy 2: {}".format(energy3))
+
 print("Active Power A: {}".format(activepowera))
 print("Active Power B: {}".format(activepowerb))
 print("Active Power B: {}".format(activepowerc))
