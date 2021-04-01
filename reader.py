@@ -138,7 +138,8 @@ dataB = modbusClient.read_holdingregisters(StartAddressB,20)
 print(dataA)
 print(dataB)
 
-energy = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
+energy1 = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
+energy2 = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
 
 activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)
 activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)
@@ -185,7 +186,8 @@ demandcurrentpeak = 0
 
 
 
-print("Energy: {}".format(energy))
+print("Energy 1: {}".format(energy1))
+print("Energy 2: {}".format(energy2))
 print("Active Power A: {}".format(activepowera))
 print("Active Power B: {}".format(activepowerb))
 print("Active Power B: {}".format(activepowerc))
