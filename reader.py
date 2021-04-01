@@ -12,6 +12,108 @@ modbusClient.stopbits = Stopbits.one
 modbusClient.unitidentifier = 1
 modbusClient.connect()
 
+
+
+StartAddressA = 3914
+
+dataA = modbusClient.read_holdingregisters(3915,2)
+
+# energy = 0
+
+# activepowera = 0
+# activepowerb = 0
+# activepowerc = 0
+
+# apparentpowera = 0
+# apparentpowerb = 0
+# apparentpowerc = 0
+
+# reactivepowera = 0
+# reactivepowerb = 0
+# reactivepowerc = 0
+
+# voltageab = 0
+# voltagebc = 0
+# voltageca = 0
+# voltagean = 0
+# voltagebn = 0
+# voltagecn = 0
+# voltagell = 0
+# voltagelnavg = 0
+
+# currenta = 0
+# currentb = 0
+# currentc = 0
+
+# powerfactora = 0
+# powerfactorb = 0
+# powerfactorc = 0
+
+# frequency = UINT32toFloat_V2(3915,StartAddressA,dataA)
+
+# demandpowerlast = 0
+# demandpowerpresent = 0
+# demandpowerpredicted = 0 
+# demandpowerpeak = 0
+
+
+# demandcurrentlast = 0
+# demandcurrentpresent = 0
+# demandcurrentpredicted = 0
+# demandcurrentpeak = 0
+
+
+
+
+# print("Energy: {}".format(energy))
+# print("Active Power A: {}".format(activepowera))
+# print("Active Power B: {}".format(activepowerb))
+# print("Active Power B: {}".format(activepowerc))
+
+# print("Apparent Power A: {}".format(apparentpowera))
+# print("Apparent Power B: {}".format(apparentpowerb))
+# print("Apparent Power B: {}".format(apparentpowerc))
+
+# print("Reactive Power A: {}".format(reactivepowera))
+# print("Reactive Power B: {}".format(reactivepowerb))
+# print("Reactive Power B: {}".format(reactivepowerc))
+
+# print("Voltage AB: {}".format(voltageab))
+# print("Voltage BC: {}".format(voltagebc))
+# print("Voltage CA: {}".format(voltageca))
+# print("Voltage AN: {}".format(voltagean))
+# print("Voltage BN: {}".format(voltagebn))
+# print("Voltage CN: {}".format(voltagecn))
+# print("Voltage LL: {}".format(voltagell))
+# print("Voltage LNAvg: {}".format(voltagelnavg))
+
+# print("Current A: {}".format(currenta))
+# print("Current B: {}".format(currentb))
+# print("Current C: {}".format(currentc))
+
+# print("Powerfactor A: {}".format(powerfactora))
+# print("Powerfactor B: {}".format(powerfactorb))
+# print("Powerfactor C: {}".format(powerfactorc))
+
+# print("Frequency: {}".format(frequency))
+
+
+# print("Demand Power Last: {}".format(demandpowerlast))
+# print("Demand Power Present: {}".format(demandcurrentpresent))
+# print("Demand Power Predicted: {}".format(demandpowerpredicted))
+# print("Demand Power Peak: {}".format(demandpowerpeak))
+
+# print("CT1: {}".format(CT1))
+# print("CT2: {}".format(CT2))
+# print("PT1: {}".format(PT1))
+# print("PT2: {}".format(PT2))
+
+
+
+
+
+
+
 def int32bits(hexstr):
     dec = int(hexstr,16)
     value = dec
@@ -128,100 +230,6 @@ def DWORD32(register, startRegister, dataArray):
     joinHex = "{}{}".format(hex_low,hex_high)
     value = float(int(joinHex,16))
     return value
-
-StartAddressA = 3914
-
-dataA = modbusClient.read_holdingregisters(StartAddressA,2)
-
-energy = 0
-
-activepowera = 0
-activepowerb = 0
-activepowerc = 0
-
-apparentpowera = 0
-apparentpowerb = 0
-apparentpowerc = 0
-
-reactivepowera = 0
-reactivepowerb = 0
-reactivepowerc = 0
-
-voltageab = 0
-voltagebc = 0
-voltageca = 0
-voltagean = 0
-voltagebn = 0
-voltagecn = 0
-voltagell = 0
-voltagelnavg = 0
-
-currenta = 0
-currentb = 0
-currentc = 0
-
-powerfactora = 0
-powerfactorb = 0
-powerfactorc = 0
-
-frequency = UINT32toFloat_V2(3915,StartAddressA,dataA)
-
-demandpowerlast = 0
-demandpowerpresent = 0
-demandpowerpredicted = 0 
-demandpowerpeak = 0
-
-
-demandcurrentlast = 0
-demandcurrentpresent = 0
-demandcurrentpredicted = 0
-demandcurrentpeak = 0
-
-
-
-
-print("Energy: {}".format(energy))
-print("Active Power A: {}".format(activepowera))
-print("Active Power B: {}".format(activepowerb))
-print("Active Power B: {}".format(activepowerc))
-
-print("Apparent Power A: {}".format(apparentpowera))
-print("Apparent Power B: {}".format(apparentpowerb))
-print("Apparent Power B: {}".format(apparentpowerc))
-
-print("Reactive Power A: {}".format(reactivepowera))
-print("Reactive Power B: {}".format(reactivepowerb))
-print("Reactive Power B: {}".format(reactivepowerc))
-
-print("Voltage AB: {}".format(voltageab))
-print("Voltage BC: {}".format(voltagebc))
-print("Voltage CA: {}".format(voltageca))
-print("Voltage AN: {}".format(voltagean))
-print("Voltage BN: {}".format(voltagebn))
-print("Voltage CN: {}".format(voltagecn))
-print("Voltage LL: {}".format(voltagell))
-print("Voltage LNAvg: {}".format(voltagelnavg))
-
-print("Current A: {}".format(currenta))
-print("Current B: {}".format(currentb))
-print("Current C: {}".format(currentc))
-
-print("Powerfactor A: {}".format(powerfactora))
-print("Powerfactor B: {}".format(powerfactorb))
-print("Powerfactor C: {}".format(powerfactorc))
-
-print("Frequency: {}".format(frequency))
-
-
-print("Demand Power Last: {}".format(demandpowerlast))
-print("Demand Power Present: {}".format(demandcurrentpresent))
-print("Demand Power Predicted: {}".format(demandpowerpredicted))
-print("Demand Power Peak: {}".format(demandpowerpeak))
-
-print("CT1: {}".format(CT1))
-print("CT2: {}".format(CT2))
-print("PT1: {}".format(PT1))
-print("PT2: {}".format(PT2))
 
 
 
