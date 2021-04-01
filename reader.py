@@ -131,7 +131,7 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddressA = 3900
 StartAddressB = 3180
-StartAddressC = 3120
+StartAddressC = 3150
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
 dataB = modbusClient.read_holdingregisters(StartAddressB,20)
@@ -143,7 +143,7 @@ print(dataC)
 
 energy1 = UINT32toFloat_V2(3961,StartAddressA,dataA)/1000
 energy2 = UINT32toFloat_V2(3183,StartAddressB,dataB)/1000
-energy3 = UINT32toFloat_V2(3123,StartAddressC,dataC)/1000
+energy3 = UINT32toFloat_V2(3153,StartAddressC,dataC)/1000
 
 activepowera = UINT32toFloat_V2(3919,StartAddressA,dataA)/1000
 activepowerb = UINT32toFloat_V2(3933,StartAddressA,dataA)/1000
