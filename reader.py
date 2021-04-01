@@ -94,6 +94,16 @@ def INT32(register, startRegister, dataArray):
     joinHex = "{}{}".format(high_hex,low_hex)
     result = int32bits(joinHex)
     return round(float(result), 2)
+
+def UINT32_V2_Inverse(register, startRegister, dataArray):
+    low = dataArray[register-startRegister]
+    high = dataArray[(register-startRegister)+1] 
+
+    # print("Data Array: {}    Low:{}   High: {}".format(dataArray,low,high))
+    val = (high * 65536) + low 
+    result = ("%.2f" % val)
+    return round(float(result), 2)
+
 def INT32_V2_Inverse(register, startRegister, dataArray):
     low = dataArray[register-startRegister]
     high = dataArray[(register-startRegister)+1]  
@@ -144,11 +154,13 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddress_A = 13312
 StartAddress_B = 13824
+StartAddress_C = 14720
 
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 8)
-print(data_A)
+data_C = modbusClient.read_holdingregisters(StartAddress_C, 2)
+
 
 energy = 0
 print("Energy Accumulate: {}".format(energy))
@@ -166,24 +178,24 @@ reactivepowera = INT32_V2_Inverse(StartAddress_A+18,StartAddress_A,data_A)
 reactivepowerb = INT32_V2_Inverse(StartAddress_A+20,StartAddress_A,data_A)
 reactivepowerc = INT32_V2_Inverse(StartAddress_A+22,StartAddress_A,data_A)
 
-voltageab = INT32_V2_Inverse(StartAddress_A+60,StartAddress_A,data_A)
-voltagebc = INT32_V2_Inverse(StartAddress_A+62,StartAddress_A,data_A)
-voltageca = INT32_V2_Inverse(StartAddress_A+64,StartAddress_A,data_A)
-voltagean = INT32_V2_Inverse(StartAddress_A+0,StartAddress_A,data_A)
-voltagebn = INT32_V2_Inverse(StartAddress_A+2,StartAddress_A,data_A)
-voltagecn = INT32_V2_Inverse(StartAddress_A+4,StartAddress_A,data_A)
+voltageab = UINT32_V2_Inverse(StartAddress_A+60,StartAddress_A,data_A)
+voltagebc = UINT32_V2_Inverse(StartAddress_A+62,StartAddress_A,data_A)
+voltageca = UINT32_V2_Inverse(StartAddress_A+64,StartAddress_A,data_A)
+voltagean = UINT32_V2_Inverse(StartAddress_A+0,StartAddress_A,data_A)
+voltagebn = UINT32_V2_Inverse(StartAddress_A+2,StartAddress_A,data_A)
+voltagecn = UINT32_V2_Inverse(StartAddress_A+4,StartAddress_A,data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = INT32_V2_Inverse(StartAddress_A+6,StartAddress_A,data_A)/100
-currentb = INT32_V2_Inverse(StartAddress_A+8,StartAddress_A,data_A)/100
-currentc = INT32_V2_Inverse(StartAddress_A+10,StartAddress_A,data_A)/100
+currenta = UINT32_V2_Inverse(StartAddress_A+6,StartAddress_A,data_A)/100
+currentb = UINT32_V2_Inverse(StartAddress_A+8,StartAddress_A,data_A)/100
+currentc = UINT32_V2_Inverse(StartAddress_A+10,StartAddress_A,data_A)/100
 
 powerfactora = INT32_V2_Inverse(StartAddress_A+30,StartAddress_A,data_A)/1000
 powerfactorb = INT32_V2_Inverse(StartAddress_A+32,StartAddress_A,data_A)/1000
 powerfactorc = INT32_V2_Inverse(StartAddress_A+34,StartAddress_A,data_A)/1000
 
-frequency = INT32_V2_Inverse(StartAddress_B+4,StartAddress_B,data_B)
+frequency = INT32_V2_Inverse(StartAddress_B+4,StartAddress_B,data_B)/100
 
 demandpowerlast = 0
 demandpowerpresent = 0
