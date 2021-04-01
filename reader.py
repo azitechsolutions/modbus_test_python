@@ -5,7 +5,7 @@ import codecs
 
 
 
-modbusClient = ModbusClient("/dev/tty.usbserial-14310")
+modbusClient = ModbusClient("/dev/ttyS0")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
