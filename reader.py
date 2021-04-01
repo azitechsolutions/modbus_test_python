@@ -129,7 +129,7 @@ def DWORD32(register, startRegister, dataArray):
     value = float(int(joinHex,16))
     return value
 
-StartAddressA = 3900
+StartAddressA = 3901
 
 dataA = modbusClient.read_holdingregisters(StartAddressA,100)
 print(dataA)
@@ -164,7 +164,7 @@ powerfactora = 0
 powerfactorb = 0
 powerfactorc = 0
 
-frequency = UINT32toFloat_V2(3915-1,StartAddressA,dataA)
+frequency = UINT32toFloat_V2(3915,StartAddressA,dataA)
 
 demandpowerlast = 0
 demandpowerpresent = 0
