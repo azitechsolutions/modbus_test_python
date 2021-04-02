@@ -164,6 +164,7 @@ CT2 = UINT16(4105,StartAddressB,dataB)
 
 if CT2 ==333:
     print("CT2 = 333mV")
+    CT2 = 1
 
 
 PT1 = UINT32_V2(4101,StartAddressB,dataB)/10
