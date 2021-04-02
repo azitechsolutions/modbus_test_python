@@ -161,10 +161,11 @@ dataB = modbusClient.read_holdingregisters(StartAddressB,20)
 
 CT1 = UINT16(4104,StartAddressB,dataB)
 CT2 = UINT16(4105,StartAddressB,dataB)
+factor = 1
 
 if CT2 ==333:
-    print("CT2 = 333mV")
     CT2 = 1
+    factor = 10
 
 
 PT1 = UINT32_V2(4101,StartAddressB,dataB)/10
@@ -172,17 +173,17 @@ PT2 = UINT16(4103,StartAddressB,dataB)/10
 
 energy = DWORD32(16456,StartAddressA,dataA)/10
 
-activepowera = UINT32toFloat_V2(16412,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-activepowerb = UINT32toFloat_V2(16414,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-activepowerc = UINT32toFloat_V2(16416,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
+activepowera = UINT32toFloat_V2(16412,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+activepowerb = UINT32toFloat_V2(16414,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+activepowerc = UINT32toFloat_V2(16416,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
 
-apparentpowera = UINT32toFloat_V2(16428,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-apparentpowerb = UINT32toFloat_V2(16430,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-apparentpowerc = UINT32toFloat_V2(16432,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
+apparentpowera = UINT32toFloat_V2(16428,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+apparentpowerb = UINT32toFloat_V2(16430,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+apparentpowerc = UINT32toFloat_V2(16432,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
 
-reactivepowera = UINT32toFloat_V2(16420,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-reactivepowerb = UINT32toFloat_V2(16422,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
-reactivepowerc = UINT32toFloat_V2(16424,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000
+reactivepowera = UINT32toFloat_V2(16420,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+reactivepowerb = UINT32toFloat_V2(16422,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+reactivepowerc = UINT32toFloat_V2(16424,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
 
 voltageab = UINT32toFloat_V2(16394,StartAddressA,dataA)*(PT1/PT2)
 voltagebc = UINT32toFloat_V2(16396,StartAddressA,dataA)*(PT1/PT2)
@@ -193,9 +194,9 @@ voltagecn = UINT32toFloat_V2(16390,StartAddressA,dataA)*(PT1/PT2)
 voltagell = UINT32toFloat_V2(16400,StartAddressA,dataA)*(PT1/PT2)
 voltagelnavg = UINT32toFloat_V2(16392,StartAddressA,dataA)*(PT1/PT2)
 
-currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/CT2)
-currentb = UINT32toFloat_V2(16404,StartAddressA,dataA)*(CT1/CT2)
-currentc = UINT32toFloat_V2(16406,StartAddressA,dataA)*(CT1/CT2)
+currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/CT2)*factor
+currentb = UINT32toFloat_V2(16404,StartAddressA,dataA)*(CT1/CT2)*factor
+currentc = UINT32toFloat_V2(16406,StartAddressA,dataA)*(CT1/CT2)*factor
 
 powerfactora = UINT32toFloat_V2(16436,StartAddressA,dataA)
 powerfactorb = UINT32toFloat_V2(16438,StartAddressA,dataA)
