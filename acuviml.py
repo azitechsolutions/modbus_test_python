@@ -155,63 +155,55 @@ def DWORD32(register, startRegister, dataArray):
 ########################################################################################################
 
 
-StartAddressA = 16384
-StartAddressB = 4093
+# Read modbus
+rangea = 8576 
+# rangeb = 8320
+rangeb = 342
 
-dataA = modbusClient.read_holdingregisters(StartAddressA,125)
-dataB = modbusClient.read_holdingregisters(StartAddressB,20)
+# quantity = 125
+dataA = modbusClient.read_holdingregisters(rangea, 84)
+dataB = modbusClient.read_holdingregisters(rangeb, 2)
 
-CT1 = UINT16(4104,StartAddressB,dataB)
-CT2 = UINT16(4105,StartAddressB,dataB)
-factor = 1
+# energy = parseFloat((UINT32toFloat(rangeb,8320,dataB)/10).toFixed(2))
+# energy = float("{}{}".format(dataB[0],dataB[1]))/10
+energy = DWORD32(342,rangeb,dataB) / 10  #New energy conversion
+print("Energy Accumulate: {}".format(energy))
 
-if CT2 ==333:
-    CT2 = 1
-    factor = 10
+activepowera = UINT32toFloat(8608+1,rangea, dataA) / 1000
+activepowerb = UINT32toFloat(8610+1,rangea, dataA) / 1000
+activepowerc = UINT32toFloat(8612+1,rangea, dataA) / 1000
 
+apparentpowera = UINT32toFloat(8624+1,rangea, dataA) / 1000
+apparentpowerb = UINT32toFloat(8626+1,rangea, dataA) / 1000
+apparentpowerc = UINT32toFloat(8628+1,rangea, dataA) / 1000
 
-PT1 = UINT32_V2(4101,StartAddressB,dataB)/10
-PT2 = UINT16(4103,StartAddressB,dataB)/10
+reactivepowera = UINT32toFloat(8616+1,rangea, dataA) / 1000
+reactivepowerb = UINT32toFloat(8618+1,rangea, dataA) / 1000
+reactivepowerc = UINT32toFloat(8620+1,rangea, dataA) / 1000
 
-energy = DWORD32(16456,StartAddressA,dataA)/10
+voltageab = UINT32toFloat(8586+1,rangea, dataA)
+voltagebc = UINT32toFloat(8588+1,rangea, dataA)
+voltageca = UINT32toFloat(8590+1,rangea, dataA)
+voltagean = UINT32toFloat(8578+1,rangea, dataA)
+voltagebn = UINT32toFloat(8580+1,rangea, dataA)
+voltagecn = UINT32toFloat(8582+1,rangea, dataA)
+voltagell = UINT32toFloat(8592+1,rangea, dataA)
+voltagelnavg = UINT32toFloat(8584+1,rangea, dataA)
 
-activepowera = UINT32toFloat_V2(16412,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-activepowerb = UINT32toFloat_V2(16414,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-activepowerc = UINT32toFloat_V2(16416,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+currenta = UINT32toFloat(8594+1,rangea, dataA)
+currentb = UINT32toFloat(8596+1,rangea, dataA)
+currentc = UINT32toFloat(8598+1,rangea, dataA)
 
-apparentpowera = UINT32toFloat_V2(16428,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-apparentpowerb = UINT32toFloat_V2(16430,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-apparentpowerc = UINT32toFloat_V2(16432,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
+powerfactora = UINT32toFloat(8632+1,rangea, dataA)
+powerfactorb = UINT32toFloat(8634+1,rangea, dataA)
+powerfactorc = UINT32toFloat(8636+1,rangea, dataA)
 
-reactivepowera = UINT32toFloat_V2(16420,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-reactivepowerb = UINT32toFloat_V2(16422,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-reactivepowerc = UINT32toFloat_V2(16424,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-
-voltageab = UINT32toFloat_V2(16394,StartAddressA,dataA)*(PT1/PT2)
-voltagebc = UINT32toFloat_V2(16396,StartAddressA,dataA)*(PT1/PT2)
-voltageca = UINT32toFloat_V2(16398,StartAddressA,dataA)*(PT1/PT2)
-voltagean = UINT32toFloat_V2(16386,StartAddressA,dataA)*(PT1/PT2)
-voltagebn = UINT32toFloat_V2(16388,StartAddressA,dataA)*(PT1/PT2)
-voltagecn = UINT32toFloat_V2(16390,StartAddressA,dataA)*(PT1/PT2)
-voltagell = UINT32toFloat_V2(16400,StartAddressA,dataA)*(PT1/PT2)
-voltagelnavg = UINT32toFloat_V2(16392,StartAddressA,dataA)*(PT1/PT2)
-
-currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/CT2)*factor
-currentb = UINT32toFloat_V2(16404,StartAddressA,dataA)*(CT1/CT2)*factor
-currentc = UINT32toFloat_V2(16406,StartAddressA,dataA)*(CT1/CT2)*factor
-
-powerfactora = UINT32toFloat_V2(16436,StartAddressA,dataA)
-powerfactorb = UINT32toFloat_V2(16438,StartAddressA,dataA)
-powerfactorc = UINT32toFloat_V2(16440,StartAddressA,dataA)
-
-frequency = UINT32toFloat_V2(16384,StartAddressA,dataA)
+frequency = UINT32toFloat(8576+1,rangea, dataA)
 
 demandpowerlast = 0
-demandpowerpresent = UINT32toFloat_V2(16450,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
-demandpowerpredicted = 0 
+demandpowerpresent = UINT32toFloat(8646+1,rangea, dataA) / 1000
+demandpowerpredicted = 0 #UINT32toFloat(rangea, 8660+1, dataA)
 demandpowerpeak = 0
-
-
 demandcurrentlast = 0
 demandcurrentpresent = 0
 demandcurrentpredicted = 0
