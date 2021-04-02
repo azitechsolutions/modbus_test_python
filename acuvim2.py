@@ -209,7 +209,10 @@ demandcurrentpresent = 0
 demandcurrentpredicted = 0
 demandcurrentpeak = 0
 
-
+print("CT1: {}".format(CT1))
+print("CT2: {}".format(CT2))
+print("PT1: {}".format(PT1))
+print("PT2: {}".format(PT2))
 
 
 print("Energy: {}".format(energy))
