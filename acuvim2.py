@@ -205,7 +205,7 @@ powerfactorc = UINT32toFloat_V2(16440,StartAddressA,dataA)
 frequency = UINT32toFloat_V2(16384,StartAddressA,dataA)
 
 demandpowerlast = 0
-demandpowerpresent = UINT32toFloat_V2(16450,StartAddressA,dataA)
+demandpowerpresent = UINT32toFloat_V2(16450,StartAddressA,dataA)*(PT1/PT2)*(CT1/CT2)/1000*factor
 demandpowerpredicted = 0 
 demandpowerpeak = 0
 
