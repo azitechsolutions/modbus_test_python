@@ -162,6 +162,10 @@ dataB = modbusClient.read_holdingregisters(StartAddressB,20)
 CT1 = UINT16(4104,StartAddressB,dataB)
 CT2 = UINT16(4105,StartAddressB,dataB)
 
+if CT2 ==333:
+    print("CT2 = 333mV")
+
+
 PT1 = UINT32_V2(4101,StartAddressB,dataB)/10
 PT2 = UINT16(4103,StartAddressB,dataB)/10
 
@@ -188,7 +192,7 @@ voltagecn = UINT32toFloat_V2(16390,StartAddressA,dataA)*(PT1/PT2)
 voltagell = UINT32toFloat_V2(16400,StartAddressA,dataA)*(PT1/PT2)
 voltagelnavg = UINT32toFloat_V2(16392,StartAddressA,dataA)*(PT1/PT2)
 
-currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/CT2)
+currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/(CT2/100))
 currentb = UINT32toFloat_V2(16404,StartAddressA,dataA)*(CT1/CT2)
 currentc = UINT32toFloat_V2(16406,StartAddressA,dataA)*(CT1/CT2)
 
