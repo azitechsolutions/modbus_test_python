@@ -193,7 +193,7 @@ voltagecn = UINT32toFloat_V2(16390,StartAddressA,dataA)*(PT1/PT2)
 voltagell = UINT32toFloat_V2(16400,StartAddressA,dataA)*(PT1/PT2)
 voltagelnavg = UINT32toFloat_V2(16392,StartAddressA,dataA)*(PT1/PT2)
 
-currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/(CT2/100))
+currenta = UINT32toFloat_V2(16402,StartAddressA,dataA)*(CT1/CT2)
 currentb = UINT32toFloat_V2(16404,StartAddressA,dataA)*(CT1/CT2)
 currentc = UINT32toFloat_V2(16406,StartAddressA,dataA)*(CT1/CT2)
 
