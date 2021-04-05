@@ -155,9 +155,9 @@ def DWORD32(register, startRegister, dataArray):
 ########################################################################################################
 
 
-StartAddress_A = 4000
+StartAddress_A = 13312
 
-data_A = modbusClient.read_holdingregisters(StartAddress_A, 58)
+data_A = modbusClient.read_holdingregisters(StartAddress_A, 65)
 
 energy = UINT32_V2(4002,StartAddress_A,data_A)
 # print("Energy Accumulate: {}".format(energy))
