@@ -156,9 +156,10 @@ def DWORD32(register, startRegister, dataArray):
 
 
 StartAddress_A = 13312
+StartAddress_B = 13824
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
-
+data_B = modbusClient.read_holdingregisters(StartAddress_B, 66)
 energy = 0 
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
@@ -188,11 +189,11 @@ currenta = 0
 currentb = 0
 currentc = 0
 
-powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)
-powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)
-powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)
+powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
+powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
+powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
-frequency = 0
+frequency = INT32_V2_Inverse(13824+4, StartAddress_B, data_B)
 
 demandpowerlast = 0
 demandpowerpresent = 0
