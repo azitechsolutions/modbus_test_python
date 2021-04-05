@@ -175,9 +175,9 @@ reactivepowera = 0
 reactivepowerb = 0
 reactivepowerc = 0
 
-voltageab = UINT32_V2(13312+0, StartAddress_A, data_A)
-voltagebc = UINT32_V2(13312+2, StartAddress_A, data_A)
-voltageca = UINT32_V2(13312+4, StartAddress_A, data_A)
+voltageab = INT32_V2_Inverse(13312+0, StartAddress_A, data_A)
+voltagebc = INT32_V2_Inverse(13312+2, StartAddress_A, data_A)
+voltageca = INT32_V2_Inverse(13312+4, StartAddress_A, data_A)
 voltagean = 0
 voltagebn = 0
 voltagecn = 0
