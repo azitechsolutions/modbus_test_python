@@ -157,9 +157,18 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddress_A = 13312
 StartAddress_B = 13824
+StartAddress_C = 242
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
+
+data_C = modbusClient.read_holdingregisters(StartAddress_C, 2)
+
+
+voltagescale = UINT16(242+0, StartAddress_C, data_C)
+currentscale = UINT16(242+1, StartAddress_C, data_C)
+
+
 energy = 0 
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
@@ -205,6 +214,8 @@ demandcurrentpredicted = 0
 demandcurrentpeak = 0
 
 ########################################################################################################
+print("Voltage Scale: {}".format(voltagescale))
+print("Current Scale: {}".format(currentscale))
 
 print("Energy: {}".format(energy))
 
