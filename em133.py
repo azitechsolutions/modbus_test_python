@@ -194,9 +194,9 @@ voltagecn = INT32_V2_Inverse(13312+4, StartAddress_A, data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = INT32_V2_Inverse(13312+6, StartAddress_A, data_A)
-currentb = INT32_V2_Inverse(13312+8, StartAddress_A, data_A)
-currentc = INT32_V2_Inverse(13312+10, StartAddress_A, data_A)
+currenta = INT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currentb = INT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currentc = INT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 
 powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
 powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
