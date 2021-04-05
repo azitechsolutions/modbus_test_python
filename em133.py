@@ -188,9 +188,9 @@ currenta = 0
 currentb = 0
 currentc = 0
 
-powerfactora = 0
-powerfactorb = 0
-powerfactorc = 0
+powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)
+powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)
+powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)
 
 frequency = 0
 
