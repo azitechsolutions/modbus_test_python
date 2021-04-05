@@ -159,7 +159,7 @@ StartAddress_A = 13312
 StartAddress_B = 13824
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
-data_B = modbusClient.read_holdingregisters(StartAddress_B, 66)
+data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
 energy = 0 
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
