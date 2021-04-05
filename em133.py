@@ -164,9 +164,9 @@ energy = 0
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
-activepowera = 0
-activepowerb = 0
-activepowerc = 0
+activepowera = INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
+activepowerb = INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
+activepowerc = INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
 
 apparentpowera = 0
 apparentpowerb = 0
@@ -193,7 +193,7 @@ powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
 powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
 powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
-frequency = INT32_V2_Inverse(13824+4, StartAddress_B, data_B)
+frequency = INT32_V2_Inverse(13824+4, StartAddress_B, data_B)/100
 
 demandpowerlast = 0
 demandpowerpresent = 0
