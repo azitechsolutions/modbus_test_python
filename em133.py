@@ -158,18 +158,21 @@ def DWORD32(register, startRegister, dataArray):
 StartAddress_A = 13312
 StartAddress_B = 13824
 StartAddress_C = 242
+StartAddress_D = 14720
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
 
 data_C = modbusClient.read_holdingregisters(StartAddress_C, 2)
 
+data_D = modbusClient.read_holdingregisters(StartAddress_D, 2)
+
 
 voltagescale = UINT16(242+0, StartAddress_C, data_C)
 currentscale = UINT16(242+1, StartAddress_C, data_C)
 
 
-energy = 0 
+energy = UINT32_V2_Inverse(14720+0, StartAddress_D,data_D)
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
