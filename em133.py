@@ -206,7 +206,7 @@ currentb = UINT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-
 currentc = UINT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 
 powerfactora = INT16(StartAddress_E+15, StartAddress_E, data_E)*(1-(-1))/(9999-0)+(-1)
-powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
+powerfactorb = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
 powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
 frequency = UINT32_V2_Inverse(13824+4, StartAddress_B, data_B)/100
