@@ -185,9 +185,12 @@ energy = UINT32_V2_Inverse(14720+0, StartAddress_D,data_D)
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
-activepowera = UINT16(StartAddress_E+6, StartAddress_E, data_E) #INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
-activepowerb = UINT16(StartAddress_E+7, StartAddress_E, data_E) #INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
-activepowerc = UINT16(StartAddress_E+8, StartAddress_E, data_E) #INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
+HI_ENG = (voltagescale*PTRatio)*(CTPrimary*2)*2
+LO_ENG  = -((voltagescale*PTRatio)*(CTPrimary*2)*2)
+
+activepowera = UINT16(StartAddress_E+6, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG#INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
+activepowerb = UINT16(StartAddress_E+7, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
+activepowerc = UINT16(StartAddress_E+8, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
 
 apparentpowera = UINT32_V2_Inverse(13312+24, StartAddress_A, data_A)
 apparentpowerb = UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
