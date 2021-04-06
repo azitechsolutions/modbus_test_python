@@ -157,19 +157,21 @@ def DWORD32(register, startRegister, dataArray):
 
 StartAddress_A = 13312
 StartAddress_B = 13824
-StartAddress_C = 242
+StartAddress_C = 240
 StartAddress_D = 14720
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
 
-data_C = modbusClient.read_holdingregisters(StartAddress_C, 2)
+data_C = modbusClient.read_holdingregisters(StartAddress_C, 4)
 
 data_D = modbusClient.read_holdingregisters(StartAddress_D, 2)
 
+ConversionScales_Low = UINT16(240+0, StartAddress_C, data_C)
+ConversionScales_High = UINT16(240+1, StartAddress_C, data_C)
 
-voltagescale = UINT16(242+0, StartAddress_C, data_C)
-currentscale = UINT16(242+1, StartAddress_C, data_C)
+voltagescale = UINT16(240+2, StartAddress_C, data_C)
+currentscale = UINT16(240+3, StartAddress_C, data_C)
 
 
 energy = UINT32_V2_Inverse(14720+0, StartAddress_D,data_D)
@@ -217,6 +219,9 @@ demandcurrentpredicted = 0
 demandcurrentpeak = 0
 
 ########################################################################################################
+print("Conversion Scales Low: {}".format(ConversionScales_Low))
+print("Conversion Scales High: {}".format(ConversionScales_Low))
+
 print("Voltage Scale: {}".format(voltagescale))
 print("Current Scale: {}".format(currentscale))
 
