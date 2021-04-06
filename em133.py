@@ -201,12 +201,12 @@ voltagecn = UINT32_V2_Inverse(13312+4, StartAddress_A, data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = UINT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currenta = UINT16(StartAddress_E+3, StartAddress_E, data_E)
 currentb = UINT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 currentc = UINT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 
-powerfactora = INT16(StartAddress_E+15, StartAddress_E, data_E)*(1-(-1))/(9999-0)+(-1)
-powerfactorb = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
+powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000 #INT16(StartAddress_E+15, StartAddress_E, data_E)*(1-(-1))/(9999-0)+(-1)
+powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
 powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
 frequency = UINT32_V2_Inverse(13824+4, StartAddress_B, data_B)/100
