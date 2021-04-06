@@ -180,32 +180,32 @@ activepowera = INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
 activepowerb = INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
 activepowerc = INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
 
-apparentpowera = INT32_V2_Inverse(13312+24, StartAddress_A, data_A)
-apparentpowerb = INT32_V2_Inverse(13312+26, StartAddress_A, data_A)
-apparentpowerc = INT32_V2_Inverse(13312+28, StartAddress_A, data_A)
+apparentpowera = UINT32_V2_Inverse(13312+24, StartAddress_A, data_A)
+apparentpowerb = UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
+apparentpowerc = UINT32_V2_Inverse(13312+28, StartAddress_A, data_A)
 
 reactivepowera = INT32_V2_Inverse(13312+18, StartAddress_A, data_A)
 reactivepowerb = INT32_V2_Inverse(13312+20, StartAddress_A, data_A)
 reactivepowerc = INT32_V2_Inverse(13312+22, StartAddress_A, data_A)
 
-voltageab = INT32_V2_Inverse(13312+60, StartAddress_A, data_A)
-voltagebc = INT32_V2_Inverse(13312+62, StartAddress_A, data_A)
-voltageca = INT32_V2_Inverse(13312+64, StartAddress_A, data_A)
-voltagean = INT32_V2_Inverse(13312+0, StartAddress_A, data_A)
-voltagebn = INT32_V2_Inverse(13312+2, StartAddress_A, data_A)
-voltagecn = INT32_V2_Inverse(13312+4, StartAddress_A, data_A)
+voltageab = UINT32_V2_Inverse(13312+60, StartAddress_A, data_A)
+voltagebc = UINT32_V2_Inverse(13312+62, StartAddress_A, data_A)
+voltageca = UINT32_V2_Inverse(13312+64, StartAddress_A, data_A)
+voltagean = UINT32_V2_Inverse(13312+0, StartAddress_A, data_A)
+voltagebn = UINT32_V2_Inverse(13312+2, StartAddress_A, data_A)
+voltagecn = UINT32_V2_Inverse(13312+4, StartAddress_A, data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = INT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
-currentb = INT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
-currentc = INT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currenta = UINT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currentb = UINT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
+currentc = UINT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 
 powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
 powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
 powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
-frequency = INT32_V2_Inverse(13824+4, StartAddress_B, data_B)/100
+frequency = UINT32_V2_Inverse(13824+4, StartAddress_B, data_B)/100
 
 demandpowerlast = 0
 demandpowerpresent = 0
