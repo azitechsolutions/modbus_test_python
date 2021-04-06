@@ -190,7 +190,7 @@ LO_ENG  = -((voltagescale*PTRatio)*(CTPrimary*2)*2)
 
 activepowera = INT16(StartAddress_E+6, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG) /1000       #INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
 activepowerb = INT16(StartAddress_E+7, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG) /1000        #INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
-activepowerc = INT16(StartAddress_E+8, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG /1000         #INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
+activepowerc = INT16(StartAddress_E+8, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG) /1000         #INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
 
 apparentpowera = INT16(StartAddress_E+12, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG) /1000     #UINT32_V2_Inverse(13312+24, StartAddress_A, data_A)
 apparentpowerb = INT16(StartAddress_E+13, StartAddress_E, data_E) * ((HI_ENG-LO_ENG)/(9999-0)+LO_ENG) /1000     #UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
