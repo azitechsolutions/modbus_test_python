@@ -224,15 +224,15 @@ print("Energy: {}".format(energy))
 
 print("Active Power A: {}".format(activepowera))
 print("Active Power B: {}".format(activepowerb))
-print("Active Power B: {}".format(activepowerc))
+print("Active Power C: {}".format(activepowerc))
 
 print("Apparent Power A: {}".format(apparentpowera))
 print("Apparent Power B: {}".format(apparentpowerb))
-print("Apparent Power B: {}".format(apparentpowerc))
+print("Apparent Power C: {}".format(apparentpowerc))
 
 print("Reactive Power A: {}".format(reactivepowera))
 print("Reactive Power B: {}".format(reactivepowerb))
-print("Reactive Power B: {}".format(reactivepowerc))
+print("Reactive Power C: {}".format(reactivepowerc))
 
 print("Voltage AB: {}".format(voltageab))
 print("Voltage BC: {}".format(voltagebc))
