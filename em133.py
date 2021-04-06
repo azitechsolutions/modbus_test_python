@@ -185,9 +185,9 @@ energy = UINT32_V2_Inverse(14720+0, StartAddress_D,data_D)
 # print("Energy Accumulate: {}".format(energy))
 print(data_A)
 
-activepowera = INT32_V2_Inverse(13312+12, StartAddress_A, data_A)
-activepowerb = INT32_V2_Inverse(13312+14, StartAddress_A, data_A)
-activepowerc = INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
+activepowera = INT32_V2_Inverse(13312+12, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
+activepowerb = INT32_V2_Inverse(13312+14, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
+activepowerc = INT32_V2_Inverse(13312+16, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
 
 apparentpowera = UINT32_V2_Inverse(13312+24, StartAddress_A, data_A)
 apparentpowerb = UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
@@ -206,7 +206,7 @@ voltagecn = UINT32_V2_Inverse(13312+4, StartAddress_A, data_A)
 voltagell = 0
 voltagelnavg = 0
 
-currenta = UINT16(StartAddress_E+3, StartAddress_E, data_E)*((CTPrimary*2)-0)/(9999-0)+0
+currenta = UINT32_V2_Inverse(13312+4, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
 currentb = UINT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
 currentc = UINT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((CTPrimary*2)-0)/(9999-0)+0
 
