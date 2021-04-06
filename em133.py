@@ -193,7 +193,7 @@ activepowerb = INT16(StartAddress_E+7, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(
 activepowerc = INT16(StartAddress_E+8, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #INT32_V2_Inverse(13312+16, StartAddress_A, data_A)
 
 apparentpowera = INT16(StartAddress_E+12, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #UINT32_V2_Inverse(13312+24, StartAddress_A, data_A)
-apparentpowerb = INT16(StartAddress_E+13 StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
+apparentpowerb = INT16(StartAddress_E+13, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #UINT32_V2_Inverse(13312+26, StartAddress_A, data_A)
 apparentpowerc = INT16(StartAddress_E+14, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #UINT32_V2_Inverse(13312+28, StartAddress_A, data_A)
 
 reactivepowera = UINT16(StartAddress_E+9, StartAddress_E, data_E)*(HI_ENG-LO_ENG)/(9999-0)+LO_ENG #INT32_V2_Inverse(13312+18, StartAddress_A, data_A)
