@@ -159,6 +159,7 @@ StartAddress_A = 13312
 StartAddress_B = 13824
 StartAddress_C = 240
 StartAddress_D = 14720
+StartAddress_E = 256
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
@@ -166,6 +167,7 @@ data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
 data_C = modbusClient.read_holdingregisters(StartAddress_C, 4)
 
 data_D = modbusClient.read_holdingregisters(StartAddress_D, 2)
+data_E = modbusClient.read_holdingregisters(StartAddress_E, 52)
 
 ConversionScales_Low = UINT16(240+0, StartAddress_C, data_C)
 ConversionScales_High = UINT16(240+1, StartAddress_C, data_C)
@@ -203,7 +205,7 @@ currenta = UINT32_V2_Inverse(13312+6, StartAddress_A, data_A)*((currentscale*2)-
 currentb = UINT32_V2_Inverse(13312+8, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 currentc = UINT32_V2_Inverse(13312+10, StartAddress_A, data_A)*((currentscale*2)-0)/(9999-0)+0
 
-powerfactora = INT32_V2_Inverse(13312+30, StartAddress_A, data_A)/1000
+powerfactora = INT16(StartAddress_E+15, StartAddress_E, data_E)
 powerfactorb = INT32_V2_Inverse(13312+32, StartAddress_A, data_A)/1000
 powerfactorc = INT32_V2_Inverse(13312+34, StartAddress_A, data_A)/1000
 
