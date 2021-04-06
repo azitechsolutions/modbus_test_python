@@ -160,6 +160,7 @@ StartAddress_B = 13824
 StartAddress_C = 240
 StartAddress_D = 14720
 StartAddress_E = 256
+StartAddress_F = 2304
 
 data_A = modbusClient.read_holdingregisters(StartAddress_A, 66)
 data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
@@ -167,10 +168,14 @@ data_B = modbusClient.read_holdingregisters(StartAddress_B, 10)
 data_C = modbusClient.read_holdingregisters(StartAddress_C, 4)
 
 data_D = modbusClient.read_holdingregisters(StartAddress_D, 2)
-data_E = modbusClient.read_holdingregisters(StartAddress_E, 52)
+data_E = modbusClient.read_holdingregisters(StartAddress_E, 52) 
+data_F = modbusClient.read_holdingregisters(StartAddress_F, 4)
 
 ConversionScales_Low = UINT16(240+0, StartAddress_C, data_C)
 ConversionScales_High = UINT16(240+1, StartAddress_C, data_C)
+
+PTRatio = UINT16(StartAddress_F+1, StartAddress_F, data_F)
+CTPrimary = UINT16(StartAddress_F+2, StartAddress_F, data_F)
 
 voltagescale = UINT16(240+2, StartAddress_C, data_C)
 currentscale = UINT16(240+3, StartAddress_C, data_C)
@@ -223,6 +228,10 @@ demandcurrentpeak = 0
 ########################################################################################################
 print("Conversion Scales Low: {}".format(ConversionScales_Low))
 print("Conversion Scales High: {}".format(ConversionScales_Low))
+
+print("PT Ratio: {}".format(PTRatio))
+print("CT Primary: {}".format(CTPrimary))
+
 
 print("Voltage Scale: {}".format(voltagescale))
 print("Current Scale: {}".format(currentscale))
