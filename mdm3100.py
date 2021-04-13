@@ -158,11 +158,11 @@ def DWORD32(register, startRegister, dataArray):
 # Read modbus
 rangea = 6216
 rangeb = 6656
-rangec = 6144
+rangec = 6201
 
 dataA = modbusClient.read_holdingregisters(rangea, 116)
 dataB = modbusClient.read_holdingregisters(rangeb, 16)
-dataC = modbusClient.read_holdingregisters(rangec, 60)
+dataC = modbusClient.read_holdingregisters(rangec, 3)
 
 print(dataC)
 energy = (UINT32_V2(6656, rangeb,dataB)+(UINT32_V2(6668, rangeb,dataB)/100000000))*1000
