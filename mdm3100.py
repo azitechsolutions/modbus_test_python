@@ -72,15 +72,17 @@ def UINT32_V2(register, startRegister, dataArray):
     val = (high * 65536) + low 
     result = ("%.2f" % val)
     return round(float(result), 2)
+
 def UINT32_V3(register, startRegister, dataArray):
     high = dataArray[register-startRegister]
     mid = dataArray[(register-startRegister)+1] 
     low = dataArray[(register-startRegister)+2] 
 
-    print("Data Array: {}    Low:{}   Mid: {}   High: {}".format(dataArray,low,mid,high))
+    # print("Data Array: {}    Low:{}   High: {}".format(dataArray,low,high))
     val = ((high * 65536 * 65536) + (mid*65536)+ low )
     result = ("%.2f" % val)
     return round(float(result), 2)
+
 def INT32(register, startRegister, dataArray):
     low = dataArray[register-startRegister]
     high = dataArray[(register-startRegister)-1]  
