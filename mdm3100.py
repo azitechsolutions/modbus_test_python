@@ -9,7 +9,7 @@ modbusClient = ModbusClient("/dev/ttyS0")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
-modbusClient.unitidentifier = 13
+modbusClient.unitidentifier = 5
 modbusClient.connect()
 
 def int32bits(hexstr):
@@ -158,13 +158,11 @@ def DWORD32(register, startRegister, dataArray):
 # Read modbus
 rangea = 6216
 rangeb = 6656
-rangec = 6201
 
 dataA = modbusClient.read_holdingregisters(rangea, 116)
 dataB = modbusClient.read_holdingregisters(rangeb, 16)
-dataC = modbusClient.read_holdingregisters(rangec, 3)
 
-print(dataC)
+
 energy = (UINT32_V2(6656, rangeb,dataB)+(UINT32_V2(6668, rangeb,dataB)/100000000))*1000
 # print("Energy Accumulate: {}".format(energy))
 
@@ -200,7 +198,7 @@ powerfactorc = dataA[6278-rangea]/1000
 frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
-demandpowerpresent = UINT32_V3(6201,rangec,dataC)/1000
+demandpowerpresent = 0
 demandpowerpredicted = 0 
 demandpowerpeak = 0
 demandcurrentlast = 0
