@@ -19,7 +19,7 @@ modbusClient.connect()
 # dataA = modbusClient.read_holdingregisters(StartAddressA,125)
 
 StartAddress_A = 19000
-data_A = modbusClient.read_holdingregisters(StartAddress_A, 120)
+dataA = modbusClient.read_holdingregisters(StartAddress_A, 120)
 
 
 
