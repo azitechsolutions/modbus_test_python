@@ -164,7 +164,6 @@ rangeb = 6656
 dataA = modbusClient.read_holdingregisters(rangea, 116)
 dataB = modbusClient.read_holdingregisters(rangeb, 16)
 
-
 energy = (UINT32_V2(6656, rangeb,dataB)+(UINT32_V2(6668, rangeb,dataB)/100000000))*1000
 # print("Energy Accumulate: {}".format(energy))
 
@@ -200,7 +199,7 @@ powerfactorc = dataA[6278-rangea]/1000
 frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
-demandpowerpresent = 0
+demandpowerpresent = UINT32_V3(6201,rangea,dataA)/1000
 demandpowerpredicted = 0 
 demandpowerpeak = 0
 demandcurrentlast = 0
