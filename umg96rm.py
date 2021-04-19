@@ -9,7 +9,7 @@ modbusClient = ModbusClient("/dev/ttyS0")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
-modbusClient.unitidentifier = 6
+modbusClient.unitidentifier = 1
 modbusClient.connect()
 
 def int32bits(hexstr):
