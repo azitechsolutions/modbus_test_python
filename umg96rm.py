@@ -9,7 +9,7 @@ modbusClient = ModbusClient("/dev/ttyS0")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
-modbusClient.unitidentifier = 5
+modbusClient.unitidentifier = 6
 modbusClient.connect()
 
 def int32bits(hexstr):
@@ -72,7 +72,6 @@ def UINT32_V2(register, startRegister, dataArray):
     val = (high * 65536) + low 
     result = ("%.2f" % val)
     return round(float(result), 2)
-
 def UINT32_V3(register, startRegister, dataArray):
     high = dataArray[register-startRegister]
     mid = dataArray[(register-startRegister)+1] 
@@ -82,7 +81,6 @@ def UINT32_V3(register, startRegister, dataArray):
     val = ((high * 65536 * 65536) + (mid*65536)+ low )
     result = ("%.2f" % val)
     return round(float(result), 2)
-
 def INT32(register, startRegister, dataArray):
     low = dataArray[register-startRegister]
     high = dataArray[(register-startRegister)-1]  
@@ -158,47 +156,44 @@ def DWORD32(register, startRegister, dataArray):
 
 
 # Read modbus
-rangea = 6216
-rangeb = 6656
-rangec = 6201
+StartAddress_A = 19000
 
-dataA = modbusClient.read_holdingregisters(rangea, 116)
-dataB = modbusClient.read_holdingregisters(rangeb, 16)
-dataC = modbusClient.read_holdingregisters(rangec, 3)
+data_A = modbusClient.read_holdingregisters(StartAddress_A, 120)
 
-energy = (UINT32_V2(6656, rangeb,dataB)+(UINT32_V2(6668, rangeb,dataB)/100000000))*1000
+# energy = 0
+energy = UINT32toFloat_V2(19060,StartAddress_A,data_A)/1000
 # print("Energy Accumulate: {}".format(energy))
 
-activepowera = UINT32_V3(6252,rangea,dataA)/1000
-activepowerb = UINT32_V3(6255,rangea,dataA)/1000
-activepowerc = UINT32_V3(6258,rangea,dataA)/1000
+activepowera = UINT32toFloat_V2(19020,StartAddress_A,data_A)/1000
+activepowerb = UINT32toFloat_V2(19022,StartAddress_A,data_A)/1000
+activepowerc = UINT32toFloat_V2(19024,StartAddress_A,data_A)/1000
 
-apparentpowera = UINT32_V3(6240,rangea,dataA)/1000
-apparentpowerb = UINT32_V3(6243,rangea,dataA)/1000
-apparentpowerc = UINT32_V3(6246,rangea,dataA)/1000
+apparentpowera = UINT32toFloat_V2(19028,StartAddress_A,data_A)/1000
+apparentpowerb = UINT32toFloat_V2(19030,StartAddress_A,data_A)/1000
+apparentpowerc = UINT32toFloat_V2(19032,StartAddress_A,data_A)/1000
 
-reactivepowera = UINT32_V3(6264,rangea,dataA)/1000
-reactivepowerb = UINT32_V3(6267,rangea,dataA)/1000
-reactivepowerc = UINT32_V3(6270,rangea,dataA)/1000
+reactivepowera = UINT32toFloat_V2(19036,StartAddress_A,data_A)/1000
+reactivepowerb = UINT32toFloat_V2(19038,StartAddress_A,data_A)/1000
+reactivepowerc = UINT32toFloat_V2(19040,StartAddress_A,data_A)/1000
 
-voltageab = UINT32_V2(6224,rangea,dataA)/10
-voltagebc = UINT32_V2(6228,rangea,dataA)/10
-voltageca = UINT32_V2(6226,rangea,dataA)/10
-voltagean = UINT32_V2(6216,rangea,dataA)/10
-voltagebn = UINT32_V2(6218,rangea,dataA)/10
-voltagecn = UINT32_V2(6220,rangea,dataA)/10
-voltagell = UINT32_V2(6230,rangea,dataA)/10
-voltagelnavg = UINT32_V2(6222,rangea,dataA)/10
+voltageab = UINT32toFloat_V2(19006,StartAddress_A,data_A)
+voltagebc = UINT32toFloat_V2(19008,StartAddress_A,data_A)
+voltageca = UINT32toFloat_V2(19010,StartAddress_A,data_A)
+voltagean = UINT32toFloat_V2(19000,StartAddress_A,data_A)
+voltagebn = UINT32toFloat_V2(19002,StartAddress_A,data_A)
+voltagecn = UINT32toFloat_V2(19004,StartAddress_A,data_A)
+voltagell = 0
+voltagelnavg = 0
 
-currenta = UINT32_V2(6232,rangea,dataA)/1000
-currentb = UINT32_V2(6234,rangea,dataA)/1000
-currentc = UINT32_V2(6236,rangea,dataA)/1000
+currenta = UINT32toFloat_V2(19012,StartAddress_A,data_A)
+currentb = UINT32toFloat_V2(19014,StartAddress_A,data_A)
+currentc = UINT32toFloat_V2(19016,StartAddress_A,data_A)
 
-powerfactora = dataA[6276-rangea]/1000
-powerfactorb = dataA[6277-rangea]/1000
-powerfactorc = dataA[6278-rangea]/1000
+powerfactora = UINT32toFloat_V2(19044,StartAddress_A,data_A)
+powerfactorb = UINT32toFloat_V2(19046,StartAddress_A,data_A)
+powerfactorc = UINT32toFloat_V2(19048,StartAddress_A,data_A)
 
-frequency = dataA[6280-rangea]/100
+frequency = UINT32toFloat_V2(19050,StartAddress_A,data_A)
 
 demandpowerlast = 0
 demandpowerpresent = 0
@@ -210,6 +205,9 @@ demandcurrentpredicted = 0
 demandcurrentpeak = 0
 
 ########################################################################################################
+
+
+
 
 print("Energy: {}".format(energy))
 
