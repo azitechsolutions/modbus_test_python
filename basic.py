@@ -10,7 +10,7 @@ modbusClient = ModbusClient("/dev/ttyS0")
 modbusClient.parity = Parity.none
 modbusClient.baudrate = 9600
 modbusClient.stopbits = Stopbits.one
-modbusClient.unitidentifier = 1
+modbusClient.unitidentifier = 13
 modbusClient.connect()
 
 
