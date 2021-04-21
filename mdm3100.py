@@ -82,6 +82,7 @@ def UINT32_V3(register, startRegister, dataArray):
     val = ((high * 65536 * 65536) + (mid*65536)+ low )
     print("Val: {}".format(val))
     result = ("%.2f" % val)
+    print("Result: {}".format(result))
     return round(float(result), 2)
 
 def INT32(register, startRegister, dataArray):
