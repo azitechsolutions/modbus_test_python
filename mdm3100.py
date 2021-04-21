@@ -202,7 +202,7 @@ frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
 demandpowerpresent = UINT32_V3(6177,rangec,dataC)/1000
-demandpowerpredicted = 0 
+demandpowerpredicted = dataC 
 demandpowerpeak = 0
 demandcurrentlast = 0
 demandcurrentpresent = 0
