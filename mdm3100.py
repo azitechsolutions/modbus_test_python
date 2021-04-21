@@ -248,7 +248,7 @@ print("Frequency: {}".format(frequency))
 
 
 print("Demand Power Last: {}".format(demandpowerlast))
-print("Demand Power Present: {}".format(demandcurrentpresent))
+print("Demand Power Present: {}".format(demandposerpresent))
 print("Demand Power Predicted: {}".format(demandpowerpredicted))
 print("Demand Power Peak: {}".format(demandpowerpeak))
 
