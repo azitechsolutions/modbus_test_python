@@ -201,7 +201,7 @@ powerfactorc = dataA[6278-rangea]/1000
 frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
-demandpowerpresent = UINT32_V3(6177,rangec,dataC)/1000
+demandpowerpresent = UINT32_V3(6177,rangec,dataC)
 demandpowerpredicted = dataC 
 demandpowerpeak = 0
 demandcurrentlast = 0
