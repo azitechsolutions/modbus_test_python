@@ -17,8 +17,8 @@ modbusClient.connect()
 
 # StartAddressA = 16384
 # dataA = modbusClient.read_holdingregisters(StartAddressA,125)
-rangea = 6216
-dataA = modbusClient.read_holdingregisters(rangea, 116)
+rangea = 619
+dataA = modbusClient.read_holdingregisters(rangea, 2)
 
 
 
