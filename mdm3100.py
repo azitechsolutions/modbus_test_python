@@ -78,11 +78,9 @@ def UINT32_V3(register, startRegister, dataArray):
     mid = dataArray[(register-startRegister)+1] 
     low = dataArray[(register-startRegister)+2] 
 
-    print("Low:{}  Mid: {}  High: {}".format(low,mid,high))
+    # print("Low:{}  Mid: {}  High: {}".format(low,mid,high))
     val = ((high * 65536 * 65536) + (mid*65536)+ low )
-    print("Val: {}".format(val))
     result = ("%.2f" % val)
-    print("Result: {}".format(result))
     return round(float(result), 2)
 
 def INT32(register, startRegister, dataArray):
@@ -162,11 +160,11 @@ def DWORD32(register, startRegister, dataArray):
 # Read modbus
 rangea = 6216
 rangeb = 6656
-rangec = 6177
+rangec = 6144
 
 dataA = modbusClient.read_holdingregisters(rangea, 116)
 dataB = modbusClient.read_holdingregisters(rangeb, 16)
-dataC = modbusClient.read_holdingregisters(rangec, 3)
+dataC = modbusClient.read_holdingregisters(rangec, 36)
 
 energy = (UINT32_V2(6656, rangeb,dataB)+(UINT32_V2(6668, rangeb,dataB)/100000000))*1000
 # print("Energy Accumulate: {}".format(energy))
@@ -203,9 +201,9 @@ powerfactorc = dataA[6278-rangea]/1000
 frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
-demandpowerpresent = UINT32_V3(6177, 6177, dataC)
-demandpowerpredicted = dataC 
-demandpowerpeak = 0
+demandpowerpresent = 0
+demandpowerpredicted = 0 
+demandpowerpeak = UINT32_V3(6177, rangec, dataC)
 demandcurrentlast = 0
 demandcurrentpresent = 0
 demandcurrentpredicted = 0
