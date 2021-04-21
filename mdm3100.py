@@ -160,7 +160,7 @@ def DWORD32(register, startRegister, dataArray):
 # Read modbus
 rangea = 6216
 rangeb = 6656
-rangec = 6201
+rangec = 6177
 
 dataA = modbusClient.read_holdingregisters(rangea, 116)
 dataB = modbusClient.read_holdingregisters(rangeb, 16)
@@ -201,7 +201,7 @@ powerfactorc = dataA[6278-rangea]/1000
 frequency = dataA[6280-rangea]/100
 
 demandpowerlast = 0
-demandpowerpresent = 0
+demandpowerpresent = UINT32_V3(6264,rangec,dataC)/1000
 demandpowerpredicted = 0 
 demandpowerpeak = 0
 demandcurrentlast = 0
